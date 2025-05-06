@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Available Vehicles</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('videos/bikecar.jpg') no-repeat center center fixed;
+      background-size: cover; /* Ensure the image covers the entire background */
+      margin: 0;
+      padding: 20px;
+      color: #fff; /* Set text color to white for better contrast on background */
+      text-align: center; /* Centering content */
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #ffffff; /* Updated text color */
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .vehicles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      padding: 20px;
+      justify-items: center; /* Align items in the center */
+    }
+
+    .vehicle {
+      background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for the vehicle cards */
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      transform-style: preserve-3d;
+      animation: floatIn 1s ease-out forwards;
+    }
+
+    .vehicle:hover {
+      transform: translateY(-10px) scale(1.03) rotateX(1deg) rotateY(1deg);
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    .vehicle img {
+      max-width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .vehicle img:hover {
+      transform: scale(1.05);
+    }
+
+    .vehicle h3 {
+      margin-top: 15px;
+      font-size: 22px;
+      color: #34495e; /* Text color for vehicle name */
+      font-weight: bold; /* Make vehicle name bold */
+    }
+
+    .vehicle p {
+      margin: 5px 0;
+      color: #2c3e50; /* Updated text color */
+      font-size: 16px;
+    }
+
+    .vehicle a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .vehicle a:hover {
+      background: #2980b9;
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    @keyframes floatIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .vehicle {
+        padding: 15px;
+      }
+
+      .vehicle img {
+        height: 140px;
+      }
+
+      h2 {
+        font-size: 28px; /* Adjust the heading size for smaller screens */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Available Vehicles</h2>
+  <div class="vehicles">
+    <% vehicles.forEach(vehicle => { %>
+      <div class="vehicle">
+        <img src="<%= vehicle.image_url %>" alt="<%= vehicle.name %>" />
+        <h3><%= vehicle.name %></h3>
+        <p><%= vehicle.model %></p>
+        <p>Rent per day: ₹<%= vehicle.rent_per_day %></p>
+        <a href="/vehicles/<%= vehicle.id %>">View Details</a>
+      </div>
+    <% }) %>
+  </div>
+
+</body>
+</html>

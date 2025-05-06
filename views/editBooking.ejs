@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Booking</title>
+</head>
+<body>
+  <h2>Edit Booking</h2>
+
+  <form method="POST" action="/bookings/update/<%= booking.id %>">
+    <label>Start Date:</label>
+    <input type="date" name="start_date" value="<%= booking.start_date.toISOString().split('T')[0] %>" required />
+    <br><br>
+
+    <label>End Date:</label>
+    <input type="date" name="end_date" value="<%= booking.end_date.toISOString().split('T')[0] %>" required />
+    <br><br>
+
+    <button type="submit">Update</button>
+  </form>
+</body>
+</html>

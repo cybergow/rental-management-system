@@ -1,0 +1,27 @@
+<h1>My Bookings</h1>
+
+<table border="1" cellpadding="10">
+  <tr>
+    <th>Vehicle</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Actions</th>
+  </tr>
+
+  <% bookings.forEach(booking => { %>
+    <tr>
+      <td><%= booking.vehicle_id %></td>
+      <td><%= booking.start_date.toDateString() %></td>
+      <td><%= booking.end_date.toDateString() %></td>
+      <td>
+        <!-- Edit button -->
+        <a href="/bookings/edit/<%= booking.id %>">Edit</a>
+
+        <!-- Delete button -->
+        <a href="/bookings/delete/<%= booking.id %>" onclick="return confirm('Are you sure you want to cancel this booking?');">
+          Cancel
+        </a>
+      </td>
+    </tr>
+  <% }) %>
+</table>

@@ -1,0 +1,50 @@
+/* Make sure video covers full screen */
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
+  
+  /* Centered login container */
+  .login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px 40px;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    width: 300px;
+  }
+  
+  .login-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .login-container button {
+    width: 100%;
+    padding: 10px;
+    background: #00bcd4;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .login-container a {
+    color: #fff;
+    text-decoration: underline;
+  }
+  
